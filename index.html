@@ -1,402 +1,265 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Verve Force Fitness - Catálogo</title>
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-        }
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Verve Force Fitness - Catálogo</title>
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: Arial, sans-serif;
+    }
 
-        body {
-            background-color: #f4f7f6;
-            color: #333;
-        }
+    body {
+      background-color: #f4f6f9;
+      color: #333;
+      padding: 20px;
+    }
 
-        header {
-            background-color: #111;
-            color: #fff;
-            text-align: center;
-            padding: 2.5rem 1rem;
-            border-bottom: 4px solid #ff4a57;
-        }
+    header {
+      text-align: center;
+      margin-bottom: 30px;
+      padding: 20px 0;
+    }
 
-        header h1 {
-            font-size: 2.5rem;
-            letter-spacing: 2px;
-            margin-bottom: 0.5rem;
-        }
+    header h1 {
+      color: #1a202c;
+      font-size: 2.2rem;
+      margin-bottom: 8px;
+    }
 
-        header p {
-            color: #aaa;
-            font-size: 1.1rem;
-        }
+    header p {
+      color: #666;
+      font-size: 1rem;
+    }
 
-        .container {
-            max-width: 1200px;
-            margin: 2rem auto;
-            padding: 0 1rem;
-        }
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 25px;
+    }
 
-        .grid-produtos {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 2rem;
-        }
+    .card {
+      background-color: #ffffff;
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
 
-        .produto-card {
-            background-color: #fff;
-            border-radius: 8px;
-            overflow: hidden;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-            display: flex;
-            flex-direction: column;
-        }
+    .card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
+    }
 
-        .produto-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 8px 25px rgba(0,0,0,0.1);
-        }
+    .img-container {
+      width: 100%;
+      height: 250px;
+      background-color: #fbfbfb;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+      border-bottom: 1px solid #eee;
+    }
 
-        .img-container {
-            width: 100%;
-            height: 280px;
-            background-color: #fff;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            padding: 1rem;
-        }
+    .img-container img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      padding: 10px;
+    }
 
-        .img-container img {
-            max-width: 100%;
-            max-height: 100%;
-            object-fit: contain;
-        }
+    .card-content {
+      padding: 20px;
+      flex-grow: 1;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
 
-        .produto-info {
-            padding: 1.5rem;
-            flex-grow: 1;
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
-            border-top: 1px solid #eee;
-        }
+    .card-title {
+      font-size: 1.15rem;
+      font-weight: bold;
+      color: #2d3748;
+      margin-bottom: 12px;
+      line-height: 1.3;
+    }
 
-        .produto-nome {
-            font-size: 1.2rem;
-            color: #222;
-            margin-bottom: 0.5rem;
-            font-weight: 600;
-            min-height: 2.8rem;
-            display: flex;
-            align-items: center;
-        }
+    .card-price {
+      font-size: 1.3rem;
+      font-weight: bold;
+      color: #e53e3e;
+      margin-bottom: 18px;
+    }
 
-        .produto-preco {
-            font-size: 1.4rem;
-            color: #ff4a57;
-            font-weight: 700;
-            margin-bottom: 1rem;
-        }
+    .btn-whatsapp {
+      display: block;
+      width: 100%;
+      padding: 12px 0;
+      background-color: #38b2ac;
+      color: #ffffff;
+      text-align: center;
+      text-decoration: none;
+      font-weight: bold;
+      border-radius: 6px;
+      transition: background-color 0.2s ease;
+    }
 
-        .btn-whatsapp {
-            display: block;
-            background-color: #25d366;
-            color: #fff;
-            text-align: center;
-            padding: 0.8rem;
-            border-radius: 5px;
-            text-decoration: none;
-            font-weight: bold;
-            transition: background-color 0.3s ease;
-        }
-
-        .btn-whatsapp:hover {
-            background-color: #1ebd58;
-        }
-
-        footer {
-            background-color: #111;
-            color: #aaa;
-            text-align: center;
-            padding: 2rem 1rem;
-            margin-top: 4rem;
-            border-top: 4px solid #ff4a57;
-        }
-
-        footer p {
-            margin-bottom: 0.5rem;
-        }
-
-        footer a {
-            color: #ff4a57;
-            text-decoration: none;
-        }
-    </style>
+    .btn-whatsapp:hover {
+      background-color: #319795;
+    }
+  </style>
 </head>
 <body>
 
-    <header>
-        <h1>VERVE FORCE FITNESS</h1>
-        <p>Equipamentos de Alta Performance para Treinamento e Preparação Física</p>
-    </header>
+  <header>
+    <h1>Verve Force Fitness</h1>
+    <p>Confira nossos equipamentos de treino e alta performance</p>
+  </header>
 
-    <div class="container">
-        <div class="grid-produtos">
+  <div class="container">
 
-            <!-- Produto 1: Cinto de Tração para Goleiro -->
-            <div class="produto-card">
-                <div class="img-container">
-                    <img src="1000005648.jpg" alt="Cinto de Tração para Goleiro">
-                </div>
-                <div class="produto-info">
-                    <h2 class="produto-nome">Cinto de Tração para Goleiro</h2>
-                    <div class="produto-preco">R$ 225,00</div>
-                    <a href="https://wa.me/5548991675191?text=Olá!%20Tenho%20interesse%20no%20Cinto%20de%20Tração%20para%20Goleiro" class="btn-whatsapp" target="_blank">Comprar via WhatsApp</a>
-                </div>
-            </div>
-
-            <!-- Produto 2: Extensor Versátil -->
-            <div class="produto-card">
-                <div class="img-container">
-                    <img src="1000005650.jpg" alt="Extensor Versátil">
-                </div>
-                <div class="produto-info">
-                    <h2 class="produto-nome">Extensor Versátil</h2>
-                    <div class="produto-preco">R$ 50,00</div>
-                    <a href="https://wa.me/5548991675191?text=Olá!%20Tenho%20interesse%20no%20Extensor%20Versátil" class="btn-whatsapp" target="_blank">Comprar via WhatsApp</a>
-                </div>
-            </div>
-
-            <!-- Produto 3: Super Band Prime -->
-            <div class="produto-card">
-                <div class="img-container">
-                    <img src="1000005637.jpg" alt="Super Band Prime">
-                </div>
-                <div class="produto-info">
-                    <h2 class="produto-nome">Super Band Prime</h2>
-                    <div class="produto-preco">R$ 120,00</div>
-                    <a href="https://wa.me/5548991675191?text=Olá!%20Tenho%20interesse%20no%20Super%20Band%20Prime" class="btn-whatsapp" target="_blank">Comprar via WhatsApp</a>
-                </div>
-            </div>
-
-            <!-- Produto 4: Cinto de Tração Médio Forte -->
-            <div class="produto-card">
-                <div class="img-container">
-                    <img src="1000005649.jpg" alt="Cinto de Tração Médio Forte">
-                </div>
-                <div class="produto-info">
-                    <h2 class="produto-nome">Cinto de Tração Médio Forte</h2>
-                    <div class="produto-preco">R$ 150,00</div>
-                    <a href="https://wa.me/5548991675191?text=Olá!%20Tenho%20interesse%20no%20Cinto%20de%20Tração%20Médio%20Forte" class="btn-whatsapp" target="_blank">Comprar via WhatsApp</a>
-                </div>
-            </div>
-
-            <!-- Produto 5: Cinto de Tração Extra Forte Não Revestido -->
-            <div class="produto-card">
-                <div class="img-container">
-                    <img src="1000005654.jpg" alt="Cinto de Tração Extra Forte não Revestido">
-                </div>
-                <div class="produto-info">
-                    <h2 class="produto-nome">Cinto de Tração Extra Forte não Revestido</h2>
-                    <div class="produto-preco">R$ 170,00</div>
-                    <a href="https://wa.me/5548991675191?text=Olá!%20Tenho%20interesse%20no%20Cinto%20de%20Tração%20Extra%20Forte%20não%20Revestido" class="btn-whatsapp" target="_blank">Comprar via WhatsApp</a>
-                </div>
-            </div>
-
-            <!-- Produto 6: Extensor Simples para Aquecimento -->
-            <div class="produto-card">
-                <div class="img-container">
-                    <img src="1000005644.jpg" alt="Extensor Simples para Aquecimento">
-                </div>
-                <div class="produto-info">
-                    <h2 class="produto-nome">Extensor Simples para Aquecimento</h2>
-                    <div class="produto-preco">R$ 70,00</div>
-                    <a href="https://wa.me/5548991675191?text=Olá!%20Tenho%20interesse%20no%20Extensor%20Simples%20para%20Aquecimento" class="btn-whatsapp" target="_blank">Comprar via WhatsApp</a>
-                </div>
-            </div>
-
-            <!-- Produto 7: Paraqueda Aquático -->
-            <div class="produto-card">
-                <div class="img-container">
-                    <img src="1000005652.jpg" alt="Paraqueda Aquático">
-                </div>
-                <div class="produto-info">
-                    <h2 class="produto-nome">Paraqueda Aquático</h2>
-                    <div class="produto-preco">R$ 145,00</div>
-                    <a href="https://wa.me/5548991675191?text=Olá!%20Tenho%20interesse%20no%20Paraqueda%20Aquático" class="btn-whatsapp" target="_blank">Comprar via WhatsApp</a>
-                </div>
-            </div>
-
-            <!-- Produto 8: Cinto de Tração para Natação -->
-            <div class="produto-card">
-                <div class="img-container">
-                    <img src="1000005653.jpg" alt="Cinto de Tração para Natação">
-                </div>
-                <div class="produto-info">
-                    <h2 class="produto-nome">Cinto de Tração para Natação</h2>
-                    <div class="produto-preco">R$ 120,00</div>
-                    <a href="https://wa.me/5548991675191?text=Olá!%20Tenho%20interesse%20no%20Cinto%20de%20Tração%20para%20Natação" class="btn-whatsapp" target="_blank">Comprar via WhatsApp</a>
-                </div>
-            </div>
-
-            <!-- Produto 9: Remador -->
-            <div class="produto-card">
-                <div class="img-container">
-                    <img src="1000005647.jpg" alt="Remador">
-                </div>
-                <div class="produto-info">
-                    <h2 class="produto-nome">Remador</h2>
-                    <div class="produto-preco">R$ 80,00</div>
-                    <a href="https://wa.me/5548991675191?text=Olá!%20Tenho%20interesse%20no%20Remador" class="btn-whatsapp" target="_blank">Comprar via WhatsApp</a>
-                </div>
-            </div>
-
-            <!-- Produto 10: Puxador -->
-            <div class="produto-card">
-                <div class="img-container">
-                    <img src="1000005651.jpg" alt="Puxador">
-                </div>
-                <div class="produto-info">
-                    <h2 class="produto-nome">Puxador</h2>
-                    <div class="produto-preco">R$ 25,00</div>
-                    <a href="https://wa.me/5548991675191?text=Olá!%20Tenho%20interesse%20no%20Puxador" class="btn-whatsapp" target="_blank">Comprar via WhatsApp</a>
-                </div>
-            </div>
-
-            <!-- Produto 11: Corda de Pular de Cabo de Aço -->
-            <div class="produto-card">
-                <div class="img-container">
-                    <img src="1000005635.jpg" alt="Corda de Pular de Cabo de Aço">
-                </div>
-                <div class="produto-info">
-                    <h2 class="produto-nome">Corda de Pular de Cabo de Aço</h2>
-                    <div class="produto-preco">R$ 40,00</div>
-                    <a href="https://wa.me/5548991675191?text=Olá!%20Tenho%20interesse%20na%20Corda%20de%20Pular%20de%20Cabo%20de%20Aço" class="btn-whatsapp" target="_blank">Comprar via WhatsApp</a>
-                </div>
-            </div>
-
-            <!-- Produto 12: Kit Preparação Física -->
-            <div class="produto-card">
-                <div class="img-container">
-                    <img src="1000005645.jpg" alt="Kit Preparação Física">
-                </div>
-                <div class="produto-info">
-                    <h2 class="produto-nome">Kit Preparação Física</h2>
-                    <div class="produto-preco">R$ 270,00</div>
-                    <a href="https://wa.me/5548991675191?text=Olá!%20Tenho%20interesse%20no%20Kit%20Preparação%20Física" class="btn-whatsapp" target="_blank">Comprar via WhatsApp</a>
-                </div>
-            </div>
-
-            <!-- Produto 13: Super Band Premium -->
-            <div class="produto-card">
-                <div class="img-container">
-                    <img src="1000005646.jpg" alt="Super Band Premium">
-                </div>
-                <div class="produto-info">
-                    <h2 class="produto-nome">Super Band Premium</h2>
-                    <div class="produto-preco">R$ 35,00</div>
-                    <a href="https://wa.me/5548991675191?text=Olá!%20Tenho%20interesse%20no%20Super%20Band%20Premium" class="btn-whatsapp" target="_blank">Comprar via WhatsApp</a>
-                </div>
-            </div>
-
-            <!-- Produto 14: Sombra -->
-            <div class="produto-card">
-                <div class="img-container">
-                    <img src="1000005639.jpg" alt="Sombra">
-                </div>
-                <div class="produto-info">
-                    <h2 class="produto-nome">Sombra</h2>
-                    <div class="produto-preco">R$ 70,00</div>
-                    <a href="https://wa.me/5548991675191?text=Olá!%20Tenho%20interesse%20na%20Sombra" class="btn-whatsapp" target="_blank">Comprar via WhatsApp</a>
-                </div>
-            </div>
-
-            <!-- Produto 15: Elástico para Exercícios e Fisioterapia -->
-            <div class="produto-card">
-                <div class="img-container">
-                    <img src="1000005640.jpg" alt="Elástico para Exercícios e Fisioterapia">
-                </div>
-                <div class="produto-info">
-                    <h2 class="produto-nome">Elástico para Exercícios e Fisioterapia</h2>
-                    <div class="produto-preco">R$ 15,00</div>
-                    <a href="https://wa.me/5548991675191?text=Olá!%20Tenho%20interesse%20no%20Elástico%20para%20Exercícios%20e%20Fisioterapia" class="btn-whatsapp" target="_blank">Comprar via WhatsApp</a>
-                </div>
-            </div>
-
-            <!-- Produto 16: Tira de Suspensão com Cabo de Aço -->
-            <div class="produto-card">
-                <div class="img-container">
-                    <img src="1000005641.jpg" alt="Tira de Suspensão com Cabo de Aço">
-                </div>
-                <div class="produto-info">
-                    <h2 class="produto-nome">Tira de Suspensão com Cabo de Aço</h2>
-                    <div class="produto-preco">R$ 140,00</div>
-                    <a href="https://wa.me/5548991675191?text=Olá!%20Tenho%20interesse%20na%20Tira%20de%20Suspensão%20com%20Cabo%20de%20Aço" class="btn-whatsapp" target="_blank">Comprar via WhatsApp</a>
-                </div>
-            </div>
-
-            <!-- Produto 17: Alça de Pé Duplo -->
-            <div class="produto-card">
-                <div class="img-container">
-                    <img src="1000005642.jpg" alt="Alça de Pé Duplo">
-                </div>
-                <div class="produto-info">
-                    <h2 class="produto-nome">Alça de Pé Duplo</h2>
-                    <div class="produto-preco">R$ 50,00</div>
-                    <a href="https://wa.me/5548991675191?text=Olá!%20Tenho%20interesse%20na%20Alça%20de%20Pé%20Duplo" class="btn-whatsapp" target="_blank">Comprar via WhatsApp</a>
-                </div>
-            </div>
-
-            <!-- Produto 18: Tira de Suspensão -->
-            <div class="produto-card">
-                <div class="img-container">
-                    <img src="1000005641_2.jpg" alt="Tira de Suspensão">
-                </div>
-                <div class="produto-info">
-                    <h2 class="produto-nome">Tira de Suspensão</h2>
-                    <div class="produto-preco">R$ 260,00</div>
-                    <a href="https://wa.me/5548991675191?text=Olá!%20Tenho%20interesse%20na%20Tira%20de%20Suspensão" class="btn-whatsapp" target="_blank">Comprar via WhatsApp</a>
-                </div>
-            </div>
-
-            <!-- Produto 19: Super Band Solt II -->
-            <div class="produto-card">
-                <div class="img-container">
-                    <img src="1000005636.jpg" alt="Super Band Solt II">
-                </div>
-                <div class="produto-info">
-                    <h2 class="produto-nome">Super Band Solt II</h2>
-                    <div class="produto-preco">R$ 90,00</div>
-                    <a href="https://wa.me/5548991675191?text=Olá!%20Tenho%20interesse%20na%20Super%20Band%20Solt%20II" class="btn-whatsapp" target="_blank">Comprar via WhatsApp</a>
-                </div>
-            </div>
-
-            <!-- Produto 20: Alça de Pé com Apoio do Calcanhar -->
-            <div class="produto-card">
-                <div class="img-container">
-                    <img src="1000005638.jpg" alt="Alça de Pé com Apoio do Calcanhar">
-                </div>
-                <div class="produto-info">
-                    <h2 class="produto-nome">Alça de Pé com Apoio do Calcanhar</h2>
-                    <div class="produto-preco">R$ 40,00</div>
-                    <a href="https://wa.me/5548991675191?text=Olá!%20Tenho%20interesse%20na%20Alça%20de%20Pé%20com%20Apoio%20do%20Calcanhar" class="btn-whatsapp" target="_blank">Comprar via WhatsApp</a>
-                </div>
-            </div>
-
-        </div>
+    <!-- Produto 1 -->
+    <div class="card">
+      <div class="img-container">
+        <img src="1000005635.jpg" alt="Paraqueda Aquático">
+      </div>
+      <div class="card-content">
+        <h2 class="card-title">Paraqueda Aquático</h2>
+        <p class="card-price">R$ 145,00</p>
+        <a href="https://wa.me/5500000000000?text=Olá,%20tenho%20interesse%20no%20Paraqueda%20Aquático" class="btn-whatsapp" target="_blank">Comprar via WhatsApp</a>
+      </div>
     </div>
 
-    <footer>
-        <p>&copy; 2026 Verve Force Fitness. Todos os direitos reservados.</p>
-        <p>Contato: <a href="mailto:verveforce.fitness@gmail.com">verveforce.fitness@gmail.com</a></p>
-    </footer>
+    <!-- Produto 2 -->
+    <div class="card">
+      <div class="img-container">
+        <img src="1000005636.jpg" alt="Extensor Duplo para Tornozelo/Pés">
+      </div>
+      <div class="card-content">
+        <h2 class="card-title">Extensor Duplo para Tornozelo/Pés</h2>
+        <p class="card-price">R$ 110,00</p>
+        <a href="https://wa.me/5500000000000?text=Olá,%20tenho%20interesse%20no%20Extensor%20Duplo" class="btn-whatsapp" target="_blank">Comprar via WhatsApp</a>
+      </div>
+    </div>
+
+    <!-- Produto 3 -->
+    <div class="card">
+      <div class="img-container">
+        <img src="1000005637.jpg" alt="Extensor de Quadril com Alça">
+      </div>
+      <div class="card-content">
+        <h2 class="card-title">Extensor de Quadril com Alça</h2>
+        <p class="card-price">R$ 95,00</p>
+        <a href="https://wa.me/5500000000000?text=Olá,%20tenho%20interesse%20no%20Extensor%20de%20Quadril" class="btn-whatsapp" target="_blank">Comprar via WhatsApp</a>
+      </div>
+    </div>
+
+    <!-- Produto 4 -->
+    <div class="card">
+      <div class="img-container">
+        <img src="1000005638.jpg" alt="Cinto de Tração com Argola Meia-Cana">
+      </div>
+      <div class="card-content">
+        <h2 class="card-title">Cinto de Tração com Argola Meia-Cana</h2>
+        <p class="card-price">R$ 120,00</p>
+        <a href="https://wa.me/5500000000000?text=Olá,%20tenho%20interesse%20no%20Cinto%20de%20Tração" class="btn-whatsapp" target="_blank">Comprar via WhatsApp</a>
+      </div>
+    </div>
+
+    <!-- Produto 5 -->
+    <div class="card">
+      <div class="img-container">
+        <img src="1000005640.jpg" alt="Kit Elásticos de Tração">
+      </div>
+      <div class="card-content">
+        <h2 class="card-title">Kit Elásticos de Tração</h2>
+        <p class="card-price">R$ 150,00</p>
+        <a href="https://wa.me/5500000000000?text=Olá,%20tenho%20interesse%20no%20Kit%20Elásticos" class="btn-whatsapp" target="_blank">Comprar via WhatsApp</a>
+      </div>
+    </div>
+
+    <!-- Produto 6 -->
+    <div class="card">
+      <div class="img-container">
+        <img src="1000005641.jpg" alt="Sistema de Roldana / Polia Dupla">
+      </div>
+      <div class="card-content">
+        <h2 class="card-title">Sistema de Roldana / Polia Dupla</h2>
+        <p class="card-price">R$ 180,00</p>
+        <a href="https://wa.me/5500000000000?text=Olá,%20tenho%20interesse%20no%20Sistema%20de%20Roldana" class="btn-whatsapp" target="_blank">Comprar via WhatsApp</a>
+      </div>
+    </div>
+
+    <!-- Produto 7 -->
+    <div class="card">
+      <div class="img-container">
+        <img src="1000005642.jpg" alt="Extensor de Tração Unilateral com Manopla">
+      </div>
+      <div class="card-content">
+        <h2 class="card-title">Extensor de Tração Unilateral</h2>
+        <p class="card-price">R$ 85,00</p>
+        <a href="https://wa.me/5500000000000?text=Olá,%20tenho%20interesse%20no%20Extensor%20Unilateral" class="btn-whatsapp" target="_blank">Comprar via WhatsApp</a>
+      </div>
+    </div>
+
+    <!-- Produto 8 -->
+    <div class="card">
+      <div class="img-container">
+        <img src="1000005643.jpg" alt="Cinta de Tração Dupla com Apoio">
+      </div>
+      <div class="card-content">
+        <h2 class="card-title">Cinta / Cinto de Tração Duplo</h2>
+        <p class="card-price">R$ 130,00</p>
+        <a href="https://wa.me/5500000000000?text=Olá,%20tenho%20interesse%20na%20Cinta%20de%20Tração" class="btn-whatsapp" target="_blank">Comprar via WhatsApp</a>
+      </div>
+    </div>
+
+    <!-- Produto 9 -->
+    <div class="card">
+      <div class="img-container">
+        <img src="1000005646.jpg" alt="Elástico de Reposição 120cm">
+      </div>
+      <div class="card-content">
+        <h2 class="card-title">Elástico de Reposição 120cm</h2>
+        <p class="card-price">R$ 45,00</p>
+        <a href="https://wa.me/5500000000000?text=Olá,%20tenho%20interesse%20no%20Elástico%20de%20Reposição" class="btn-whatsapp" target="_blank">Comprar via WhatsApp</a>
+      </div>
+    </div>
+
+    <!-- Produto 10 -->
+    <div class="card">
+      <div class="img-container">
+        <img src="1000005647.jpg" alt="Extensor de Tornozelo">
+      </div>
+      <div class="card-content">
+        <h2 class="card-title">Extensor de Tornozelo</h2>
+        <p class="card-price">R$ 75,00</p>
+        <a href="https://wa.me/5500000000000?text=Olá,%20tenho%20interesse%20no%20Extensor%20de%20Tornozelo" class="btn-whatsapp" target="_blank">Comprar via WhatsApp</a>
+      </div>
+    </div>
+
+    <!-- Produto 11 -->
+    <div class="card">
+      <div class="img-container">
+        <img src="1000005651.jpg" alt="Puxador Anatômico Emborrachado">
+      </div>
+      <div class="card-content">
+        <h2 class="card-title">Puxador Anatômico Emborrachado</h2>
+        <p class="card-price">R$ 55,00</p>
+        <a href="https://wa.me/5500000000000?text=Olá,%20tenho%20interesse%20no%20Puxador%20Anatômico" class="btn-whatsapp" target="_blank">Comprar via WhatsApp</a>
+      </div>
+    </div>
+
+  </div>
 
 </body>
 </html>
