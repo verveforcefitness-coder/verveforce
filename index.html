@@ -1,0 +1,465 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Verve Force Fitness - Catálogo</title>
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: Arial, sans-serif;
+    }
+
+    body {
+      background-color: #f4f6f9;
+      color: #333;
+      padding: 20px;
+    }
+
+    header {
+      text-align: center;
+      margin-bottom: 30px;
+      padding: 20px 0;
+    }
+
+    header h1 {
+      color: #1a202c;
+      font-size: 2.2rem;
+      margin-bottom: 8px;
+    }
+
+    header p {
+      color: #666;
+      font-size: 1rem;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 25px;
+    }
+
+    .card {
+      background-color: #ffffff;
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
+    }
+
+    .img-container {
+      width: 100%;
+      height: 250px;
+      background-color: #fbfbfb;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+      border-bottom: 1px solid #eee;
+    }
+
+    .img-container img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      padding: 10px;
+    }
+
+    .card-content {
+      padding: 20px;
+      flex-grow: 1;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    .card-title {
+      font-size: 1.15rem;
+      font-weight: bold;
+      color: #2d3748;
+      margin-bottom: 12px;
+      line-height: 1.3;
+    }
+
+    .card-price {
+      font-size: 1.3rem;
+      font-weight: bold;
+      color: #e53e3e;
+      margin-bottom: 18px;
+    }
+
+    .btn-whatsapp {
+      display: block;
+      width: 100%;
+      padding: 12px 0;
+      background-color: #38b2ac;
+      color: #ffffff;
+      text-align: center;
+      text-decoration: none;
+      font-weight: bold;
+      border-radius: 6px;
+      border: none;
+      cursor: pointer;
+      font-size: 1rem;
+      transition: background-color 0.2s ease;
+    }
+
+    .btn-whatsapp:hover {
+      background-color: #319795;
+    }
+
+    /* Modal / Pop-up de Cadastro */
+    .modal-overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.6);
+      display: none;
+      justify-content: center;
+      align-items: center;
+      z-index: 1000;
+      padding: 15px;
+    }
+
+    .modal-content {
+      background: #fff;
+      padding: 25px;
+      border-radius: 12px;
+      max-width: 500px;
+      width: 100%;
+      max-height: 90vh;
+      overflow-y: auto;
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+    }
+
+    .modal-content h2 {
+      margin-bottom: 15px;
+      color: #1a202c;
+      font-size: 1.4rem;
+    }
+
+    .form-group {
+      margin-bottom: 12px;
+    }
+
+    .form-group label {
+      display: block;
+      font-size: 0.9rem;
+      font-weight: bold;
+      margin-bottom: 5px;
+      color: #4a5568;
+    }
+
+    .form-group input {
+      width: 100%;
+      padding: 10px;
+      border: 1px solid #cbd5e0;
+      border-radius: 6px;
+      font-size: 0.95rem;
+    }
+
+    .form-row {
+      display: flex;
+      gap: 10px;
+    }
+
+    .form-row .form-group {
+      flex: 1;
+    }
+
+    .modal-buttons {
+      display: flex;
+      gap: 10px;
+      margin-top: 15px;
+    }
+
+    .btn-cancel {
+      background: #e2e8f0;
+      color: #4a5568;
+      border: none;
+      padding: 12px;
+      border-radius: 6px;
+      cursor: pointer;
+      font-weight: bold;
+      flex: 1;
+    }
+
+    .btn-submit {
+      background: #25d366;
+      color: #fff;
+      border: none;
+      padding: 12px;
+      border-radius: 6px;
+      cursor: pointer;
+      font-weight: bold;
+      flex: 2;
+    }
+
+    .btn-submit:hover {
+      background: #1ebc57;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>Verve Force Fitness</h1>
+    <p>Confira nossos equipamentos de treino e alta performance</p>
+  </header>
+
+  <div class="container">
+
+    <!-- Produto 1 -->
+    <div class="card">
+      <div class="img-container">
+        <img src="1000005635.jpg" alt="Paraqueda Aquático">
+      </div>
+      <div class="card-content">
+        <h2 class="card-title">Paraqueda Aquático</h2>
+        <p class="card-price">R$ 145,00</p>
+        <button class="btn-whatsapp" onclick="abrirCadastro('Paraqueda Aquático', 'R$ 145,00')">Comprar via WhatsApp</button>
+      </div>
+    </div>
+
+    <!-- Produto 2 -->
+    <div class="card">
+      <div class="img-container">
+        <img src="1000005636.jpg" alt="Extensor Duplo para Tornozelo/Pés">
+      </div>
+      <div class="card-content">
+        <h2 class="card-title">Extensor Duplo para Tornozelo/Pés</h2>
+        <p class="card-price">R$ 110,00</p>
+        <button class="btn-whatsapp" onclick="abrirCadastro('Extensor Duplo para Tornozelo/Pés', 'R$ 110,00')">Comprar via WhatsApp</button>
+      </div>
+    </div>
+
+    <!-- Produto 3 -->
+    <div class="card">
+      <div class="img-container">
+        <img src="1000005637.jpg" alt="Extensor de Quadril com Alça">
+      </div>
+      <div class="card-content">
+        <h2 class="card-title">Extensor de Quadril com Alça</h2>
+        <p class="card-price">R$ 95,00</p>
+        <button class="btn-whatsapp" onclick="abrirCadastro('Extensor de Quadril com Alça', 'R$ 95,00')">Comprar via WhatsApp</button>
+      </div>
+    </div>
+
+    <!-- Produto 4 -->
+    <div class="card">
+      <div class="img-container">
+        <img src="1000005638.jpg" alt="Cinto de Tração com Argola Meia-Cana">
+      </div>
+      <div class="card-content">
+        <h2 class="card-title">Cinto de Tração com Argola Meia-Cana</h2>
+        <p class="card-price">R$ 120,00</p>
+        <button class="btn-whatsapp" onclick="abrirCadastro('Cinto de Tração com Argola Meia-Cana', 'R$ 120,00')">Comprar via WhatsApp</button>
+      </div>
+    </div>
+
+    <!-- Produto 5 -->
+    <div class="card">
+      <div class="img-container">
+        <img src="1000005640.jpg" alt="Kit Elásticos de Tração">
+      </div>
+      <div class="card-content">
+        <h2 class="card-title">Kit Elásticos de Tração</h2>
+        <p class="card-price">R$ 150,00</p>
+        <button class="btn-whatsapp" onclick="abrirCadastro('Kit Elásticos de Tração', 'R$ 150,00')">Comprar via WhatsApp</button>
+      </div>
+    </div>
+
+    <!-- Produto 6 -->
+    <div class="card">
+      <div class="img-container">
+        <img src="1000005641.jpg" alt="Sistema de Roldana / Polia Dupla">
+      </div>
+      <div class="card-content">
+        <h2 class="card-title">Sistema de Roldana / Polia Dupla</h2>
+        <p class="card-price">R$ 180,00</p>
+        <button class="btn-whatsapp" onclick="abrirCadastro('Sistema de Roldana / Polia Dupla', 'R$ 180,00')">Comprar via WhatsApp</button>
+      </div>
+    </div>
+
+    <!-- Produto 7 -->
+    <div class="card">
+      <div class="img-container">
+        <img src="1000005642.jpg" alt="Extensor de Tração Unilateral com Manopla">
+      </div>
+      <div class="card-content">
+        <h2 class="card-title">Extensor de Tração Unilateral</h2>
+        <p class="card-price">R$ 85,00</p>
+        <button class="btn-whatsapp" onclick="abrirCadastro('Extensor de Tração Unilateral', 'R$ 85,00')">Comprar via WhatsApp</button>
+      </div>
+    </div>
+
+    <!-- Produto 8 -->
+    <div class="card">
+      <div class="img-container">
+        <img src="1000005643.jpg" alt="Cinta de Tração Dupla com Apoio">
+      </div>
+      <div class="card-content">
+        <h2 class="card-title">Cinta / Cinto de Tração Duplo</h2>
+        <p class="card-price">R$ 130,00</p>
+        <button class="btn-whatsapp" onclick="abrirCadastro('Cinta de Tração Dupla com Apoio', 'R$ 130,00')">Comprar via WhatsApp</button>
+      </div>
+    </div>
+
+    <!-- Produto 9 -->
+    <div class="card">
+      <div class="img-container">
+        <img src="1000005646.jpg" alt="Elástico de Reposição 120cm">
+      </div>
+      <div class="card-content">
+        <h2 class="card-title">Elástico de Reposição 120cm</h2>
+        <p class="card-price">R$ 45,00</p>
+        <button class="btn-whatsapp" onclick="abrirCadastro('Elástico de Reposição 120cm', 'R$ 45,00')">Comprar via WhatsApp</button>
+      </div>
+    </div>
+
+    <!-- Produto 10 -->
+    <div class="card">
+      <div class="img-container">
+        <img src="1000005647.jpg" alt="Extensor de Tornozelo">
+      </div>
+      <div class="card-content">
+        <h2 class="card-title">Extensor de Tornozelo</h2>
+        <p class="card-price">R$ 75,00</p>
+        <button class="btn-whatsapp" onclick="abrirCadastro('Extensor de Tornozelo', 'R$ 75,00')">Comprar via WhatsApp</button>
+      </div>
+    </div>
+
+    <!-- Produto 11 -->
+    <div class="card">
+      <div class="img-container">
+        <img src="1000005651.jpg" alt="Puxador Anatômico Emborrachado">
+      </div>
+      <div class="card-content">
+        <h2 class="card-title">Puxador Anatômico Emborrachado</h2>
+        <p class="card-price">R$ 55,00</p>
+        <button class="btn-whatsapp" onclick="abrirCadastro('Puxador Anatômico Emborrachado', 'R$ 55,00')">Comprar via WhatsApp</button>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- Modal do Formulario -->
+  <div class="modal-overlay" id="modalCadastro">
+    <div class="modal-content">
+      <h2>Dados para Entrega</h2>
+      <p style="font-size: 0.9rem; margin-bottom: 15px; color: #666;" id="produtoSelecionado"></p>
+
+      <form id="formCadastro" onsubmit="enviarParaWhatsapp(event)">
+        <div class="form-group">
+          <label for="nome">Nome Completo *</label>
+          <input type="text" id="nome" required placeholder="Digite seu nome">
+        </div>
+
+        <div class="form-row">
+          <div class="form-group">
+            <label for="cpf">CPF *</label>
+            <input type="text" id="cpf" required placeholder="000.000.000-00">
+          </div>
+          <div class="form-group">
+            <label for="telefone">Telefone / WhatsApp *</label>
+            <input type="tel" id="telefone" required placeholder="(00) 00000-0000">
+          </div>
+        </div>
+
+        <div class="form-row">
+          <div class="form-group">
+            <label for="cidade">Cidade *</label>
+            <input type="text" id="cidade" required placeholder="Sua cidade">
+          </div>
+          <div class="form-group">
+            <label for="pais">País *</label>
+            <input type="text" id="pais" value="Brasil" required>
+          </div>
+        </div>
+
+        <div class="form-row">
+          <div class="form-group" style="flex: 2;">
+            <label for="rua">Rua / Avenida *</label>
+            <input type="text" id="rua" required placeholder="Nome da rua">
+          </div>
+          <div class="form-group" style="flex: 1;">
+            <label for="numero">Número *</label>
+            <input type="text" id="numero" required placeholder="123">
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="referencia">Ponto de Referência</label>
+          <input type="text" id="referencia" placeholder="Ex: Próximo à farmácia, casa azul...">
+        </div>
+
+        <div class="modal-buttons">
+          <button type="button" class="btn-cancel" onclick="fecharCadastro()">Cancelar</button>
+          <button type="submit" class="btn-submit">Finalizar no WhatsApp</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <script>
+    const SEU_NUMERO_WHATSAPP = "5548991675191"; 
+
+    let produtoAtual = "";
+    let precoAtual = "";
+
+    function abrirCadastro(produto, preco) {
+      produtoAtual = produto;
+      precoAtual = preco;
+      document.getElementById("produtoSelecionado").innerText = `Produto: ${produto} (${preco})`;
+      document.getElementById("modalCadastro").style.display = "flex";
+    }
+
+    function fecharCadastro() {
+      document.getElementById("modalCadastro").style.display = "none";
+    }
+
+    function enviarParaWhatsapp(e) {
+      e.preventDefault();
+
+      const nome = document.getElementById("nome").value;
+      const cpf = document.getElementById("cpf").value;
+      const telefone = document.getElementById("telefone").value;
+      const cidade = document.getElementById("cidade").value;
+      const pais = document.getElementById("pais").value;
+      const rua = document.getElementById("rua").value;
+      const numero = document.getElementById("numero").value;
+      const referencia = document.getElementById("referencia").value || "Nenhum";
+
+      const mensagem = `Olá, gostaria de fechar o pedido!%0A%0A` +
+        `📦 *PRODUTO:* ${produtoAtual} (${precoAtual})%0A%0A` +
+        `👤 *DADOS DO CLIENTE:*%0A` +
+        `• *Nome:* ${nome}%0A` +
+        `• *CPF:* ${cpf}%0A` +
+        `• *Telefone:* ${telefone}%0A%0A` +
+        `📍 *ENDEREÇO DE ENTREGA:*%0A` +
+        `• *Rua:* ${rua}, Nº ${numero}%0A` +
+        `• *Cidade/País:* ${cidade} - ${pais}%0A` +
+        `• *Ponto de Referência:* ${referencia}`;
+
+      const url = `https://wa.me/${SEU_NUMERO_WHATSAPP}?text=${mensagem}`;
+      window.open(url, '_blank');
+      fecharCadastro();
+    }
+  </script>
+
+</body>
+</html>
