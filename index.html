@@ -1,265 +1,264 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Verve Force Fitness - Catálogo</title>
-  <style>
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-      font-family: Arial, sans-serif;
-    }
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Loja de Equipamentos Esportivos e Fitness</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
 
-    body {
-      background-color: #f4f6f9;
-      color: #333;
-      padding: 20px;
-    }
+        body {
+            background-color: #f4f6f8;
+            color: #333;
+            padding: 20px;
+        }
 
-    header {
-      text-align: center;
-      margin-bottom: 30px;
-      padding: 20px 0;
-    }
+        header {
+            text-align: center;
+            margin-bottom: 35px;
+            padding: 20px 0;
+        }
 
-    header h1 {
-      color: #1a202c;
-      font-size: 2.2rem;
-      margin-bottom: 8px;
-    }
+        header h1 {
+            color: #1a252f;
+            font-size: 2.2rem;
+            margin-bottom: 8px;
+        }
 
-    header p {
-      color: #666;
-      font-size: 1rem;
-    }
+        header p {
+            color: #666;
+            font-size: 1.05rem;
+        }
 
-    .container {
-      max-width: 1200px;
-      margin: 0 auto;
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 25px;
-    }
+        .container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 25px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
 
-    .card {
-      background-color: #ffffff;
-      border-radius: 12px;
-      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
-      overflow: hidden;
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-      transition: transform 0.2s ease, box-shadow 0.2s ease;
-    }
+        .card {
+            background: #fff;
+            border-radius: 10px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
 
-    .card:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
-    }
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 6px 16px rgba(0,0,0,0.12);
+        }
 
-    .img-container {
-      width: 100%;
-      height: 250px;
-      background-color: #fbfbfb;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      overflow: hidden;
-      border-bottom: 1px solid #eee;
-    }
+        .img-container {
+            width: 100%;
+            height: 220px;
+            background-color: #ffffff;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 10px;
+            border-bottom: 1px solid #f0f0f0;
+        }
 
-    .img-container img {
-      width: 100%;
-      height: 100%;
-      object-fit: contain;
-      padding: 10px;
-    }
+        .img-container img {
+            max-width: 100%;
+            max-height: 100%;
+            object-fit: contain;
+        }
 
-    .card-content {
-      padding: 20px;
-      flex-grow: 1;
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-    }
+        .card-content {
+            padding: 18px;
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            flex-grow: 1;
+            justify-content: space-between;
+        }
 
-    .card-title {
-      font-size: 1.15rem;
-      font-weight: bold;
-      color: #2d3748;
-      margin-bottom: 12px;
-      line-height: 1.3;
-    }
+        .card-title {
+            font-size: 1.1rem;
+            color: #2c3e50;
+            font-weight: 600;
+            line-height: 1.3;
+        }
 
-    .card-price {
-      font-size: 1.3rem;
-      font-weight: bold;
-      color: #e53e3e;
-      margin-bottom: 18px;
-    }
+        .card-price {
+            font-size: 1.3rem;
+            color: #2e7d32;
+            font-weight: bold;
+        }
 
-    .btn-whatsapp {
-      display: block;
-      width: 100%;
-      padding: 12px 0;
-      background-color: #38b2ac;
-      color: #ffffff;
-      text-align: center;
-      text-decoration: none;
-      font-weight: bold;
-      border-radius: 6px;
-      transition: background-color 0.2s ease;
-    }
+        .btn-whatsapp {
+            background-color: #25d366;
+            color: white;
+            border: none;
+            padding: 12px;
+            border-radius: 6px;
+            font-size: 0.95rem;
+            font-weight: bold;
+            cursor: pointer;
+            text-align: center;
+            transition: background-color 0.2s ease;
+            text-decoration: none;
+            display: block;
+            width: 100%;
+        }
 
-    .btn-whatsapp:hover {
-      background-color: #319795;
-    }
-  </style>
+        .btn-whatsapp:hover {
+            background-color: #1ebe5d;
+        }
+    </style>
 </head>
 <body>
 
-  <header>
-    <h1>Verve Force Fitness</h1>
-    <p>Confira nossos equipamentos de treino e alta performance</p>
-  </header>
+    <header>
+        <h1>Nossos Equipamentos</h1>
+        <p>Escolha seu produto e faça o pedido diretamente pelo WhatsApp</p>
+    </header>
 
-  <div class="container">
+    <div class="container">
 
-    <!-- Produto 1 -->
-    <div class="card">
-      <div class="img-container">
-        <img src="1000005635.jpg" alt="Paraqueda Aquático">
-      </div>
-      <div class="card-content">
-        <h2 class="card-title">Paraqueda Aquático</h2>
-        <p class="card-price">R$ 145,00</p>
-        <a href="https://wa.me/5500000000000?text=Olá,%20tenho%20interesse%20no%20Paraqueda%20Aquático" class="btn-whatsapp" target="_blank">Comprar via WhatsApp</a>
-      </div>
+        <!-- Produto 1 -->
+        <div class="card">
+            <div class="img-container">
+                <img src="kit-treino-tracao.jpg" alt="Kit Multitreinamento Tração">
+            </div>
+            <div class="card-content">
+                <div class="card-title">Kit Multitreinamento Tração</div>
+                <div class="card-price">R$ 180,00</div>
+                <button class="btn-whatsapp" onclick="abrirCadastro('Kit Multitreinamento Tração', 'R$ 180,00')">Comprar via WhatsApp</button>
+            </div>
+        </div>
+
+        <!-- Produto 2 -->
+        <div class="card">
+            <div class="img-container">
+                <img src="superband-prime.jpg" alt="Elástico Circular Superband Amarelo">
+            </div>
+            <div class="card-content">
+                <div class="card-title">Elástico Circular Superband Amarelo</div>
+                <div class="card-price">R$ 80,00</div>
+                <button class="btn-whatsapp" onclick="abrirCadastro('Elástico Circular Superband Amarelo', 'R$ 80,00')">Comprar via WhatsApp</button>
+            </div>
+        </div>
+
+        <!-- Produto 3 -->
+        <div class="card">
+            <div class="img-container">
+                <img src="cinto-tracao-duplo.jpg" alt="Cinto de Tração com Tornozeleiras">
+            </div>
+            <div class="card-content">
+                <div class="card-title">Cinto de Tração com Tornozeleiras</div>
+                <div class="card-price">R$ 110,00</div>
+                <button class="btn-whatsapp" onclick="abrirCadastro('Cinto de Tração com Tornozeleiras', 'R$ 110,00')">Comprar via WhatsApp</button>
+            </div>
+        </div>
+
+        <!-- Produto 4 -->
+        <div class="card">
+            <div class="img-container">
+                <img src="kit-tracao-amarelo.jpg" alt="Kit Tração Elástico Longo Amarelo">
+            </div>
+            <div class="card-content">
+                <div class="card-title">Kit Tração Elástico Longo Amarelo</div>
+                <div class="card-price">R$ 135,00</div>
+                <button class="btn-whatsapp" onclick="abrirCadastro('Kit Tração Elástico Longo Amarelo', 'R$ 135,00')">Comprar via WhatsApp</button>
+            </div>
+        </div>
+
+        <!-- Produto 5 -->
+        <div class="card">
+            <div class="img-container">
+                <img src="extensor-quadril.jpg" alt="Extensor de Quadril com Proteção">
+            </div>
+            <div class="card-content">
+                <div class="card-title">Extensor de Quadril com Proteção</div>
+                <div class="card-price">R$ 70,00</div>
+                <button class="btn-whatsapp" onclick="abrirCadastro('Extensor de Quadril com Proteção', 'R$ 70,00')">Comprar via WhatsApp</button>
+            </div>
+        </div>
+
+        <!-- Produto 6 -->
+        <div class="card">
+            <div class="img-container">
+                <img src="remador.jpg" alt="Remador Elástico Duplo com Manopla">
+            </div>
+            <div class="card-content">
+                <div class="card-title">Remador Elástico Duplo com Manopla</div>
+                <div class="card-price">R$ 65,00</div>
+                <button class="btn-whatsapp" onclick="abrirCadastro('Remador Elástico Duplo com Manopla', 'R$ 65,00')">Comprar via WhatsApp</button>
+            </div>
+        </div>
+
+        <!-- Produto 7 -->
+        <div class="card">
+            <div class="img-container">
+                <img src="puxador-manopla.jpg" alt="Puxador Manopla com Argola Metal">
+            </div>
+            <div class="card-content">
+                <div class="card-title">Puxador Manopla com Argola Metal</div>
+                <div class="card-price">R$ 35,00</div>
+                <button class="btn-whatsapp" onclick="abrirCadastro('Puxador Manopla com Argola Metal', 'R$ 35,00')">Comprar via WhatsApp</button>
+            </div>
+        </div>
+
+        <!-- Produto 8 -->
+        <div class="card">
+            <div class="img-container">
+                <img src="tira-suspensao.jpg" alt="Kit Suspensão Corporal e Abdominal">
+            </div>
+            <div class="card-content">
+                <div class="card-title">Kit Suspensão Corporal e Abdominal</div>
+                <div class="card-price">R$ 145,00</div>
+                <button class="btn-whatsapp" onclick="abrirCadastro('Kit Suspensão Corporal e Abdominal', 'R$ 145,00')">Comprar via WhatsApp</button>
+            </div>
+        </div>
+
+        <!-- Produto 9 -->
+        <div class="card">
+            <div class="img-container">
+                <img src="cinto-tracao-individual.jpg" alt="Cinto de Tração Individual Látex">
+            </div>
+            <div class="card-content">
+                <div class="card-title">Cinto de Tração Individual Látex</div>
+                <div class="card-price">R$ 85,00</div>
+                <button class="btn-whatsapp" onclick="abrirCadastro('Cinto de Tração Individual Látex', 'R$ 85,00')">Comprar via WhatsApp</button>
+            </div>
+        </div>
+
+        <!-- Produto 10 -->
+        <div class="card">
+            <div class="img-container">
+                <img src="extensor-puxador.jpg" alt="Extensor Puxador Duplo Amarelo">
+            </div>
+            <div class="card-content">
+                <div class="card-title">Extensor Puxador Duplo Amarelo</div>
+                <div class="card-price">R$ 60,00</div>
+                <button class="btn-whatsapp" onclick="abrirCadastro('Extensor Puxador Duplo Amarelo', 'R$ 60,00')">Comprar via WhatsApp</button>
+            </div>
+        </div>
+
     </div>
 
-    <!-- Produto 2 -->
-    <div class="card">
-      <div class="img-container">
-        <img src="1000005636.jpg" alt="Extensor Duplo para Tornozelo/Pés">
-      </div>
-      <div class="card-content">
-        <h2 class="card-title">Extensor Duplo para Tornozelo/Pés</h2>
-        <p class="card-price">R$ 110,00</p>
-        <a href="https://wa.me/5500000000000?text=Olá,%20tenho%20interesse%20no%20Extensor%20Duplo" class="btn-whatsapp" target="_blank">Comprar via WhatsApp</a>
-      </div>
-    </div>
-
-    <!-- Produto 3 -->
-    <div class="card">
-      <div class="img-container">
-        <img src="1000005637.jpg" alt="Extensor de Quadril com Alça">
-      </div>
-      <div class="card-content">
-        <h2 class="card-title">Extensor de Quadril com Alça</h2>
-        <p class="card-price">R$ 95,00</p>
-        <a href="https://wa.me/5500000000000?text=Olá,%20tenho%20interesse%20no%20Extensor%20de%20Quadril" class="btn-whatsapp" target="_blank">Comprar via WhatsApp</a>
-      </div>
-    </div>
-
-    <!-- Produto 4 -->
-    <div class="card">
-      <div class="img-container">
-        <img src="1000005638.jpg" alt="Cinto de Tração com Argola Meia-Cana">
-      </div>
-      <div class="card-content">
-        <h2 class="card-title">Cinto de Tração com Argola Meia-Cana</h2>
-        <p class="card-price">R$ 120,00</p>
-        <a href="https://wa.me/5500000000000?text=Olá,%20tenho%20interesse%20no%20Cinto%20de%20Tração" class="btn-whatsapp" target="_blank">Comprar via WhatsApp</a>
-      </div>
-    </div>
-
-    <!-- Produto 5 -->
-    <div class="card">
-      <div class="img-container">
-        <img src="1000005640.jpg" alt="Kit Elásticos de Tração">
-      </div>
-      <div class="card-content">
-        <h2 class="card-title">Kit Elásticos de Tração</h2>
-        <p class="card-price">R$ 150,00</p>
-        <a href="https://wa.me/5500000000000?text=Olá,%20tenho%20interesse%20no%20Kit%20Elásticos" class="btn-whatsapp" target="_blank">Comprar via WhatsApp</a>
-      </div>
-    </div>
-
-    <!-- Produto 6 -->
-    <div class="card">
-      <div class="img-container">
-        <img src="1000005641.jpg" alt="Sistema de Roldana / Polia Dupla">
-      </div>
-      <div class="card-content">
-        <h2 class="card-title">Sistema de Roldana / Polia Dupla</h2>
-        <p class="card-price">R$ 180,00</p>
-        <a href="https://wa.me/5500000000000?text=Olá,%20tenho%20interesse%20no%20Sistema%20de%20Roldana" class="btn-whatsapp" target="_blank">Comprar via WhatsApp</a>
-      </div>
-    </div>
-
-    <!-- Produto 7 -->
-    <div class="card">
-      <div class="img-container">
-        <img src="1000005642.jpg" alt="Extensor de Tração Unilateral com Manopla">
-      </div>
-      <div class="card-content">
-        <h2 class="card-title">Extensor de Tração Unilateral</h2>
-        <p class="card-price">R$ 85,00</p>
-        <a href="https://wa.me/5500000000000?text=Olá,%20tenho%20interesse%20no%20Extensor%20Unilateral" class="btn-whatsapp" target="_blank">Comprar via WhatsApp</a>
-      </div>
-    </div>
-
-    <!-- Produto 8 -->
-    <div class="card">
-      <div class="img-container">
-        <img src="1000005643.jpg" alt="Cinta de Tração Dupla com Apoio">
-      </div>
-      <div class="card-content">
-        <h2 class="card-title">Cinta / Cinto de Tração Duplo</h2>
-        <p class="card-price">R$ 130,00</p>
-        <a href="https://wa.me/5500000000000?text=Olá,%20tenho%20interesse%20na%20Cinta%20de%20Tração" class="btn-whatsapp" target="_blank">Comprar via WhatsApp</a>
-      </div>
-    </div>
-
-    <!-- Produto 9 -->
-    <div class="card">
-      <div class="img-container">
-        <img src="1000005646.jpg" alt="Elástico de Reposição 120cm">
-      </div>
-      <div class="card-content">
-        <h2 class="card-title">Elástico de Reposição 120cm</h2>
-        <p class="card-price">R$ 45,00</p>
-        <a href="https://wa.me/5500000000000?text=Olá,%20tenho%20interesse%20no%20Elástico%20de%20Reposição" class="btn-whatsapp" target="_blank">Comprar via WhatsApp</a>
-      </div>
-    </div>
-
-    <!-- Produto 10 -->
-    <div class="card">
-      <div class="img-container">
-        <img src="1000005647.jpg" alt="Extensor de Tornozelo">
-      </div>
-      <div class="card-content">
-        <h2 class="card-title">Extensor de Tornozelo</h2>
-        <p class="card-price">R$ 75,00</p>
-        <a href="https://wa.me/5500000000000?text=Olá,%20tenho%20interesse%20no%20Extensor%20de%20Tornozelo" class="btn-whatsapp" target="_blank">Comprar via WhatsApp</a>
-      </div>
-    </div>
-
-    <!-- Produto 11 -->
-    <div class="card">
-      <div class="img-container">
-        <img src="1000005651.jpg" alt="Puxador Anatômico Emborrachado">
-      </div>
-      <div class="card-content">
-        <h2 class="card-title">Puxador Anatômico Emborrachado</h2>
-        <p class="card-price">R$ 55,00</p>
-        <a href="https://wa.me/5500000000000?text=Olá,%20tenho%20interesse%20no%20Puxador%20Anatômico" class="btn-whatsapp" target="_blank">Comprar via WhatsApp</a>
-      </div>
-    </div>
-
-  </div>
+    <script>
+        function abrirCadastro(produto, preco) {
+            // Insira abaixo o seu número de WhatsApp com DDD (ex: 5551999999999)
+            const numeroWhatsApp = "55999999999"; 
+            const mensagem = `Olá! Tenho interesse no produto: *${produto}* (${preco}). Como faço para adquirir?`;
+            const url = `https://api.whatsapp.com/send?phone=${numeroWhatsApp}&text=${encodeURIComponent(mensagem)}`;
+            window.open(url, '_blank');
+        }
+    </script>
 
 </body>
 </html>
